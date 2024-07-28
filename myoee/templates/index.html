@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Course Scheduler</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+    <div class="landing-page">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="School Logo" class="logo">
+        <h1>Welcome to the School Course Scheduler</h1>
+        <div class="animation-container">
+            <!-- Add your interesting animations here, kelvin -->
+        </div>
+        <form action="{{ url_for('signup') }}" method="POST">
+            <input type="text" name="username" placeholder="Enter Username" required>
+            <input type="email" name="email" placeholder="Enter Email" required>
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+</body>
+</html>

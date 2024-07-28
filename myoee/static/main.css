@@ -1,0 +1,32 @@
+body {
+    background-image: url("/static/images/giphy.gif");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: Arial, sans-serif;
+}
+
+h1, h2, h3 {
+    color: #12db95e0;
+}
+
+form {
+    background-color: rgba(9, 124, 162, 0.88);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input, select, button {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #f80808;
+    width: 100%;
+    box-sizing: border-box;
+}

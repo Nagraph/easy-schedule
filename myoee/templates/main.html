@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Major and Courses</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <style>
+        /* Add your CSS here */
+        .courses-container {
+            color: #f4dd0b; /* Change this to your desired color */
+        }
+    </style>
+</head>
+<body>
+    <div class="main-page">
+        <h1>Select Your Major</h1>
+        <form action="{{ url_for('select_major') }}" method="POST">
+            <select name="major" required>
+                {% for major in majors %}
+                    <option value="{{ major }}">{{ major }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Submit</button>
+        </form>
+        <div class="courses-container">
+            {% if available_courses %}
+                <h2>Available Courses</h2>
+                <ul>
+                    {% for course in available_courses %}
+                        <li>{{ course }}</li>
+                    {% endfor %}
+                </ul>
+                <form action="{{ url_for('add_courses') }}" method="POST">
+                    <input type="hidden" name="major" value="{{ selected_major }}">
+                    <input type="text" name="course" placeholder="Enter course code (e.g., CS101)" required>
+                    <button type="submit">Add Course</button>
+                </form>
+                <h2>Selected Courses</h2>
+                <ul>
+                    {% for course in selected_courses %}
+                        <li>{{ course }}</li>
+                    {% endfor %}
+                </ul>
+                <form action="{{ url_for('submit_courses') }}" method="POST">
+                    <button type="submit">Submit Courses</button>
+                </form>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

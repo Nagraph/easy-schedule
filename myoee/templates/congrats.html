@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Congratulations</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <style>
+        .congrats-page {
+            color: rgb(213, 20, 220);
+            text-align: center;
+            padding: 50px;
+            animation: fadeIn 2s;
+        }
+        .congrats-page h1 {
+            color: #12d9ef;
+            animation: zoomIn 1s;
+        }
+        .congrats-page ul {
+            list-style-type: none;
+            padding: 0;
+            animation: slideIn 1s;
+        }
+        .congrats-page li {
+            color: aquamarine;
+            font-size: 20px;
+            margin: 10px 0;
+        }
+        .congrats-page button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #0e014b;
+            color: rgb(241, 240, 240);
+            border: none;
+            cursor: pointer;
+            animation: bounceIn 2s;
+        }
+        .congrats-page button:hover {
+            background-color: #4572a0;
+        }
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+        @keyframes zoomIn {
+            from {transform: scale(0.5);}
+            to {transform: scale(1);}
+        }
+        @keyframes slideIn {
+            from {transform: translateX(-100%);}
+            to {transform: translateX(0);}
+        }
+        @keyframes bounceIn {
+            from, 20%, 40%, 60%, 80%, to {transform: translateY(0);}
+            20% {transform: translateY(-10px);}
+            40% {transform: translateY(-20px);}
+            60% {transform: translateY(-15px);}
+            80% {transform: translateY(-5px);}
+        }
+    </style>
+</head>
+<body>
+    <div class="congrats-page">
+        <h1>Congratulations!</h1>
+        <p>You have successfully scheduled your courses:</p>
+        <ul>
+            {% for course in selected_courses %}
+                <li>{{ course }}</li>
+            {% endfor %}
+        </ul>
+        <button onclick="window.location.href='{{ url_for('index') }}'">Return to Homepage</button>
+    </div>
+</body>
+</html>
